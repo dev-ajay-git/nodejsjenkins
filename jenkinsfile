@@ -9,6 +9,6 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm  // Checkout your code from GitHub
+                git 'https://github.com/dev-ajay-git/nodejsjenkins.git'  // Checkout your code from GitHub
             }
         }

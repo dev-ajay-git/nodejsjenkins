@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+tools {
+        nodejs 'nodejs'  // The name should match the Node.js version you configured in Jenkins Global Tool Configuration
+    }
     environment {
         SONARQUBE = 'Sonar_url'  // Replace with your actual SonarQube configuration
         NEXUS_REPO = 'http://13.127.145.84:8081/'  // Replace with your Nexus repository URL

@@ -1,20 +1,22 @@
 {
-  "name": "nodejs-jenkins",
+  "name": "dev-ajay-git",
   "version": "1.0.0",
-  "description": "A simple Node.js project for Jenkins, SonarQube, and Nessus",
-  "main": "server.js",
+  "description": "A Node.js project with Jenkins pipeline for testing, building, and deployment.",
   "scripts": {
-    "start": "node server.js",
-    "test": "jest"
+    "test": "mocha __tests__/**/*.js",  // Running tests with Mocha
+    "build": "echo 'No build step defined'",  // You can update this if you use Webpack or any other build tool
+    "start": "node server.js",  // Starting the server
+    "sonar": "sonar-scanner",  // Running SonarQube analysis
+    "deploy-nexus": "bash deploy-nexus.sh",  // Deploy to Nexus
+    "jacoco": "nyc mocha __tests__/**/*.js"  // Generate code coverage report using nyc (optional, if using coverage)
   },
   "dependencies": {
-    "express": "^4.18.2"
-     "nyc": "^15.1.0",
-    "mocha": "^8.0.0"
+    "express": "^4.17.1",  // Express for server-side handling
+    "mocha": "^8.0.0",  // Mocha for testing
+    "nyc": "^15.1.0"  // NYC for code coverage (if you're using it)
   },
   "devDependencies": {
-    "jest": "^29.0.0",
-    "supertest": "^6.3.0"
+    "webpack": "^5.0.0",  // Optional: Webpack for bundling if used
+    "webpack-cli": "^4.0.0"  // Optional: Webpack CLI if you're using Webpack
   }
 }
-

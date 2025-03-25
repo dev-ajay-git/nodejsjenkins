@@ -12,3 +12,4 @@ pipeline {
                 git 'https://github.com/dev-ajay-git/nodejsjenkins.git'  // Checkout your code from GitHub
             }
         }
+}

@@ -3,20 +3,20 @@
   "version": "1.0.0",
   "description": "A Node.js project with Jenkins pipeline for testing, building, and deployment.",
   "scripts": {
-    "test": "mocha __tests__/**/*.js",  // Running tests with Mocha
-    "build": "echo 'No build step defined'",  // You can update this if you use Webpack or any other build tool
-    "start": "node server.js",  // Starting the server
-    "sonar": "sonar-scanner",  // Running SonarQube analysis
-    "deploy-nexus": "bash deploy-nexus.sh",  // Deploy to Nexus
-    "jacoco": "nyc mocha __tests__/**/*.js"  // Generate code coverage report using nyc (optional, if using coverage)
+    "test": "mocha __tests__/**/*.js",
+    "build": "echo 'No build step defined'",
+    "start": "node server.js",
+    "sonar": "sonar-scanner",
+    "deploy-nexus": "bash deploy-nexus.sh",
+    "jacoco": "nyc mocha __tests__/**/*.js"
   },
   "dependencies": {
-    "express": "^4.17.1",  // Express for server-side handling
-    "mocha": "^8.0.0",  // Mocha for testing
-    "nyc": "^15.1.0"  // NYC for code coverage (if you're using it)
+    "express": "^4.17.1",
+    "mocha": "^8.0.0",
+    "nyc": "^15.1.0"
   },
   "devDependencies": {
-    "webpack": "^5.0.0",  // Optional: Webpack for bundling if used
-    "webpack-cli": "^4.0.0"  // Optional: Webpack CLI if you're using Webpack
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0"
   }
 }

@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE = 'SonarQube'  // Replace with your actual SonarQube configuration
-        NEXUS_REPO = 'nexus-repository-url'  // Replace with your Nexus repository URL
+        SONARQUBE = 'Sonar_url'  // Replace with your actual SonarQube configuration
+        NEXUS_REPO = 'http://13.127.145.84:8081/'  // Replace with your Nexus repository URL
     }
 
     stages {
@@ -12,63 +12,3 @@ pipeline {
                 checkout scm  // Checkout your code from GitHub
             }
         }
-
-        stage('Install Dependencies') {
-            steps {
-                script {
-                    sh 'npm install'  // Install the dependencies defined in package.json
-                }
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                script {
-                    sh 'npm test'  // Run tests (Mocha or your preferred framework)
-                }
-            }
-        }
-
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    withSonarQubeEnv(SONARQUBE) {
-                        sh 'npm run sonar'  // Run SonarQube analysis
-                    }
-                }
-            }
-        }
-
-        stage('Build') {
-            steps {
-                script {
-                    sh 'npm run build'  // Run the build command (optional, depends on your project setup)
-                }
-            }
-        }
-
-        stage('JaCoCo Code Coverage') {
-            steps {
-                script {
-                    sh 'npm run jacoco'  // Generate code coverage reports (if needed)
-                }
-            }
-        }
-
-        stage('Publish to Nexus') {
-            steps {
-                script {
-                    sh 'npm run deploy-nexus'  // Deploy to Nexus (upload artifacts)
-                }
-            }
-        }
-
-        stage('Deploy to Tomcat') {
-            steps {
-                script {
-                    sh './deploy.sh'  // Deploy to Tomcat using a custom deploy script
-                }
-            }
-        }
-    }
-}

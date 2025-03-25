@@ -1,15 +1,15 @@
-const express = require("express");
-const routes = require("./routes");
-
+const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = 3000;
 
-app.use(express.json());
-app.use("/", routes);
-
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+// Sample endpoint
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
 });
 
-module.exports = app;
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
 
+module.exports = app;  // Export the app for testing purposes

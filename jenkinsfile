@@ -12,5 +12,11 @@ pipeline {
                 git 'https://github.com/dev-ajay-git/nodejsjenkins.git'  // Checkout your code from GitHub
             }
         }
+stage('Install Dependencies') {
+            steps {
+                script {
+                    sh 'npm install'  // Install the dependencies defined in package.json
+                }
+            }
 }
 }
